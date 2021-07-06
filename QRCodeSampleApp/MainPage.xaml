@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QRCodeSampleApp.MainPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing">
+
+    <StackLayout>
+        <zxing:ZXingBarcodeImageView BarcodeValue="MECARD:N:Dmitry Solodov;ORG:ООО Центр Обслуживания Бизнеса;TEL:89520350925;EMAIL:solodovdi@kamaz.ru;ADR:Набережные Челны;;" BarcodeFormat="QR_CODE" WidthRequest="500" HeightRequest="500">
+            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                <zxingcommon:EncodingOptions Width="500" Height="500" GS1Format="False" />
+            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+        </zxing:ZXingBarcodeImageView>
+    </StackLayout>
+
+</ContentPage>
