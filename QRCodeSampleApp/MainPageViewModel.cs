@@ -30,9 +30,10 @@ namespace QRCodeSampleApp
         {
             try
             {
-                string fn = Transliteration.CyrillicToLatin(FullName, Language.Russian);
-                string org = Transliteration.CyrillicToLatin(Organization, Language.Russian);
-                string adr = Transliteration.CyrillicToLatin(Adress, Language.Russian);
+                Translitor translitor = new Translitor();
+                string fn = translitor.Translit(FullName);
+                string org = translitor.Translit(Organization);
+                string adr = translitor.Translit(Adress);
                 BarcodeValue = $"MECARD:N:{fn};ORG:{org};TEL:{PhoneNumber};EMAIL:{Email};ADR:{adr};;";
                 BarcodeIsVisible = true;
             }
