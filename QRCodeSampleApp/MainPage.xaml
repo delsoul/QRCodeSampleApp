@@ -5,12 +5,30 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing">
 
-    <StackLayout>
-        <zxing:ZXingBarcodeImageView BarcodeValue="MECARD:N:Dmitry Solodov;ORG:ООО Центр Обслуживания Бизнеса;TEL:89520350925;EMAIL:solodovdi@kamaz.ru;ADR:Набережные Челны;;" BarcodeFormat="QR_CODE" WidthRequest="500" HeightRequest="500">
+    <ScrollView>
+        <StackLayout>
+        <Label Text="ФИО" Margin="40, 80, 0, 0" FontAttributes="Bold"/>
+        <Entry Text="{Binding FullName}" Margin="40, 20, 40, 0"/>
+        <Label Text="Организация" Margin="40, 20, 0, 0" FontAttributes="Bold"/>
+        <Entry Text="{Binding Organization}" Margin="40, 20, 40, 0"/>
+        <Label Text="Номер телефона" Margin="40, 20, 0, 0" FontAttributes="Bold"/>
+        <Entry Text="{Binding PhoneNumber}" Margin="40, 20, 40, 0"/>
+        <Label Text="Эл. почта" Margin="40, 20, 0, 0" FontAttributes="Bold"/>
+        <Entry Text="{Binding Email}" Margin="40, 20, 40, 0"/>
+        <Label Text="Адрес" Margin="40, 20, 0, 0" FontAttributes="Bold"/>
+        <Entry Text="{Binding Adress}" Margin="40, 20, 40, 0"/>
+        <Frame Margin="80, 40, 80, 0" HasShadow="False" CornerRadius="20" BackgroundColor="LightGray">
+            <Label Text="Generate QR" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GenerateQRCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+        <zxing:ZXingBarcodeImageView IsVisible="{Binding BarcodeIsVisible}" BarcodeValue="{Binding BarcodeValue}" BarcodeFormat="QR_CODE" WidthRequest="500" HeightRequest="500">
             <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                <zxingcommon:EncodingOptions Width="500" Height="500" GS1Format="False" />
+                <zxingcommon:EncodingOptions Width="500" Height="500" />
             </zxing:ZXingBarcodeImageView.BarcodeOptions>
         </zxing:ZXingBarcodeImageView>
     </StackLayout>
-
+    </ScrollView>
 </ContentPage>
